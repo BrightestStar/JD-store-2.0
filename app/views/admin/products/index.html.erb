@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>#</th>
+      <th width="220">Product Pic</th>
       <th>品名</th>
-      <th>叙述</th>
       <th>库存</th>
       <th>价格</th>
       <th>选项</th>
@@ -20,8 +20,16 @@
     <% @products.each do |product| %>
     <tr>
       <td><%= product.id %></td>
+      <td>
+        <%= link_to admin_product_path(product) do %>
+        <% if product.image.present? %>
+        <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+        <%= image_tag("https://ww1.sinaimg.cn/large/006y8lValy1fca38ugjwpj305l05kq2p.jpg", class: "thumbnail") %>
+        <% end %>
+        <% end %>
+      </td>
       <td><%= link_to product.title, admin_product_path(product) %></td>
-      <td><%= simple_format(product.description) %></td>
       <td><%= product.quantity %></td>
       <td><%= product.price %></td>
       <td><%= link_to 'Edit', edit_admin_product_path(product) %>|<%= link_to 'Delete', admin_product_path(product), method: :delete, data: { confirm: "Are you sure?"} %></td>

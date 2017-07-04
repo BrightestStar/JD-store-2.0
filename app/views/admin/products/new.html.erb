@@ -13,5 +13,10 @@
 <div class="group">
   <%= f.input :price %>
 </div>
+<div class="well">
+  <%= f.label :attachment %>
+  <%= f.file_field :image %>
+</div>
+
 <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
