@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
-    redirect_to request.referer, notice: "这是一个测试"
+    current_cart.add_product_to_cart(@product)
+    redirect_to request.referer, notice: "成功加入购物车"
   end
 end
