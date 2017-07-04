@@ -13,5 +13,16 @@
 <div class="group">
   <%= f.input :price %>
 </div>
+
+<% if @product.image.present? %>
+<span>目前商品图</span>
+<br>
+<%= image_tag(@product.image.thumb.url) %>
+<% end %>
+
+<div class="well">
+  <%= f.label :attachment %>
+  <%= f.file_field :image %>
+</div>
 <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
