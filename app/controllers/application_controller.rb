@@ -7,12 +7,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def order
-    @order = Order.find_by_token(params[:id])
-    @product_lists = @order.product_lists
-    return order
-  end
-
   helper_method :current_cart
 
   def current_cart
