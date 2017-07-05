@@ -4,4 +4,8 @@ class CartsController < ApplicationController
     @cart.destroy
     redirect_to request.referer
   end
+
+  def checkout
+    @order = Order.new
+  end
 end
